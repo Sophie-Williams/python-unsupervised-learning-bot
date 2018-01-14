@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "AI_Bot", "AI_Bot\AI_Bot.pyproj", "{33DE002F-B9CE-4D2C-B4BF-35B26CB15C29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33DE002F-B9CE-4D2C-B4BF-35B26CB15C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33DE002F-B9CE-4D2C-B4BF-35B26CB15C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C749BBEA-7A5F-412C-B796-AC2FF7784991}
+	EndGlobalSection
+EndGlobal
