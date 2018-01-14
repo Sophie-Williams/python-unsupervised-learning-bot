@@ -28,12 +28,12 @@ import conv_model as cm
 model = cm.getModel()
 
 #cm.trainModel(model,
-#              'C:/Users/Erich/Documents/Giovani Ricercatori/dataTrex/validation',
-#              'C:/Users/Erich/Documents/Giovani Ricercatori/dataTrex/training',
-#              'C:/Users/Erich/Documents/Tensorboard/GiovaniRicercatori/7',
-#              'C:/Users/Erich/Documents/Giovani Ricercatori/weights/pesi_trex.h5')
+#              'path_validation',
+#              'path_training',
+#              'destination_tensorboard_log',
+#              'destination_conv_weights')
 
-#cm.loadWeights(model,'C:/Users/Erich/Documents/Giovani Ricercatori/weights/pesi_trex.h5')
+#cm.loadWeights(model,'path_weights')
 
 X = 12
 Y = 10
@@ -51,7 +51,7 @@ batch_size = 32
 
 totalGenomes = 0
 
-cm.loadWeights(model,'C:/Users/Erich/Documents/Giovani Ricercatori/weights/pesi_finale.h5') 
+cm.loadWeights(model,'path_weights') 
 
 
 isGameOver = True
@@ -111,6 +111,6 @@ while(True):
     ultimoFrame = time.time()
 
     if(totalGenomes == 6000):
-        utils.saveWeights(specie,0,'C:/Users/Erich/Documents/Giovani Ricercatori/pesiNN/pesi.json')
+        utils.saveWeights(specie,0,'destination_weights')
         break;
     
