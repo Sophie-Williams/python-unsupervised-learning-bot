@@ -9,9 +9,11 @@ import time
 
 import json
 
-
+<<<<<<< HEAD
+=======
 import key_controller as key
 
+>>>>>>> master
 import Species as s
 
 from scipy import misc
@@ -19,6 +21,10 @@ from scipy import misc
 import utils
 
 import conv_model as cm
+
+import pyautogui
+
+import os.path
 
 
 #def processImg(imgToProcess):
@@ -51,13 +57,17 @@ batch_size = 32
 
 totalGenomes = 0
 
-cm.loadWeights(model,'path_weights') 
+cm.loadWeights(model,'D:/Projects/Python/NN/AI_Bot/weights/pesi_finale.h5')
+
+#serialization
+if(os.path.isfile('D:/Projects/Python/NN/AI_Bot/nnWeights.npy')):
+    specie.setWeights(np.load('D:/Projects/Python/NN/AI_Bot/nnWeights.npy'))
 
 
 isGameOver = True
 ultimoFrame = time.time()
 while(True):
-    screen = ImageGrab.grab(bbox=(59,129,800,600))
+    screen = ImageGrab.grab(bbox=(110,107,800,600))
     screen = misc.imresize(screen,(60,80))
     screen = np.array(screen)
     screen = utils.swapArray(screen)
@@ -68,8 +78,13 @@ while(True):
     #print(model.predict(screen,batch_size=batch_size)[0][0])
     if(cm.predictInput(model,screen)[0][0] < 0.5):
         fitness = 0
-        key.PressKey(0x39)
-        key.ReleaseKey(0x39)
+        pyautogui.keyUp('left')
+        pyautogui.keyUp('right')
+        #key.PressKey(0x39)
+        #key.ReleaseKey(0x39)
+        pyautogui.keyDown('space')
+        pyautogui.keyUp('space')
+        time.sleep(5)
         #print("HOPERSOOOOOO")
         if(not isGameOver):
             isGameOver = True
@@ -77,6 +92,7 @@ while(True):
             specie.nextGeneration()
             if(currentGenome >= macsGenomes - 1):
                 currentGenome = 0
+                np.save('D:/Projects/Python/NN/AI_Bot/nnWeights.npy',specie.getWeights())
             else:
                 currentGenome = currentGenome + 1
                 totalGenomes = totalGenomes + 1
@@ -88,23 +104,25 @@ while(True):
         output = specie.getOutputs(currentGenome)
         #print(currentGenome)
         #print(specie.toString())
-
+        print(output)
 
         if(output[0] > 0.5):
-            #key.PressKey(0xC8) #up
-            key.PressKey(0xCB) #left
+            #key.PressKey(0xCB) #left
+            pyautogui.keyDown('left')
+            print("left")
             #key.ReleaseKey(0xCB)
         else:
-            key.ReleaseKey(0xCB)
-            #key.ReleaseKey(0xC8) #u     p
+            #key.ReleaseKey(0xCB)
+            pyautogui.keyUp('left')
 
         if(output[1] > 0.5):
-            #key.PressKey(0xD0) #down
-            key.PressKey(0xCD) #right
+            #key.PressKey(0xCD) #right
+            pyautogui.keyDown('right')
+            print("right")
             #key.ReleaseKey(0xCD)
         else:
-            key.ReleaseKey(0xCD)
-            #key.ReleaseKey(0xD0) #up
+            #key.ReleaseKey(0xCD)
+            pyautogui.keyUp('right')
 
         fitness = fitness + 1
     #print(time.time()-ultimoFrame)
