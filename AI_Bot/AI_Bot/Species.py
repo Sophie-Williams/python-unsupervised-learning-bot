@@ -94,3 +94,14 @@ class Species(object):
 
         return toRtn
 
+    def getMediumFitness(self):
+        i = 0
+        totFitness = 0
+        nGenomes = len(self.genomes)
+
+        while i < nGenomes:
+            totFitness += self.genomes[i].getFitness()
+            i += 1
+
+        return totFitness/nGenomes
+

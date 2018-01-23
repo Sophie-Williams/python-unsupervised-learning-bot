@@ -129,7 +129,7 @@ class Genome(object):
         self.fitness = fitness
 
 
-    def getfitness(self):
+    def getFitness(self):
         return self.fitness
 
 

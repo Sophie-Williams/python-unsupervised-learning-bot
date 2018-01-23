@@ -28,6 +28,9 @@
     <Compile Include="Genome.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GraphDrawer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="key_controller.py">
       <SubType>Code</SubType>
     </Compile>
